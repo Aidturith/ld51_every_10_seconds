@@ -7,6 +7,7 @@ var selected: ImagePrompt = null
 func _ready():
 	print("load game")
 	randomize()
+	center_window()
 	self.images = load_images("res://assets/sd")
 	var image_a = pick_image()
 	var image_b = pick_image()
@@ -35,6 +36,11 @@ func _on_Result_next_stage():
 	$Scenes/Choosing.enable()
 	$Scenes/Choosing.init(picks)
 	$UI/TickingClock/Timer.start()
+
+func center_window():
+	var screen_size = OS.get_screen_size()
+	var window_size = OS.get_window_size()
+	OS.set_window_position(screen_size*0.5 - window_size*0.5)
 
 func load_images(path: String):
 	var scene = load("res://scenes/ImagePrompt.tscn")
