@@ -13,7 +13,7 @@ func _ready():
 	var image_a = pick_image()
 	var image_b = pick_image()
 	self.picks = [image_a, image_b]
-	$ChooseImage.init(picks)
+	$Scenes/ChooseImage.init(picks)
 	#var choose_node = choose_scn.instance()
 	#choose_node.init(picks)
 	#self.add_child(choose_node)
@@ -42,22 +42,22 @@ func pick_image():
 
 func _on_ChooseImage_image_selected(index):
 	self.selected = picks[index]
-	$ChooseImage.hide()
-	$ChooseImage.pause_mode = Node.PAUSE_MODE_STOP
-	$TitleImage.init(selected)
+	$Scenes/ChooseImage.hide()
+	$Scenes/ChooseImage.pause_mode = Node.PAUSE_MODE_STOP
+	$Scenes/TitleImage.init(selected)
 
 func _on_TickingClock_clock_stop():
-	$TitleImage/LineEdit.editable = false
-	$TitleImage.hide()
-	$TitleImage.pause_mode = Node.PAUSE_MODE_STOP
+	$Scenes/TitleImage/LineEdit.editable = false
+	$Scenes/TitleImage.hide()
+	$Scenes/TitleImage.pause_mode = Node.PAUSE_MODE_STOP
 	var scores = get_scores()
-	$Result.init(selected)
-	$Result.update_score(scores)
-	$Result.show()
-	$Result.pause_mode = Node.PAUSE_MODE_INHERIT
+	$Scenes/Result.init(selected)
+	$Scenes/Result.update_score(scores)
+	$Scenes/Result.show()
+	$Scenes/Result.pause_mode = Node.PAUSE_MODE_INHERIT
 
 func get_scores():
-	var title_tokens = $TitleImage/LineEdit.text.split(" ", false)
+	var title_tokens = $Scenes/TitleImage/LineEdit.text.split(" ", false)
 	var scores = []
 	for a in title_tokens:
 		var score_max = 0.0
