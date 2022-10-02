@@ -34,8 +34,8 @@ func push_wave():
 	$RichTextLabel.append_bbcode("[wave amp=25 freq=2]")
 
 func push_color(score: float):
-	var color = white_red_gradient(score)
+	var color = black_red_gradient(score)
 	$RichTextLabel.push_color(color)
 
-func white_red_gradient(weight: float):
-	return Color(1, 1 - weight, 1 - weight)
+func black_red_gradient(weight: float):
+	return Color(weight, 0, 0)
