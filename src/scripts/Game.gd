@@ -14,6 +14,7 @@ func _ready():
 	self.picks = [image_a, image_b]
 	$Scenes/Choosing.init(picks)
 	$Scenes/Choosing.enable()
+	$UI/TickingClock/Timer.start()
 
 func _on_Choosing_image_selected(index):
 	self.selected = picks[index]

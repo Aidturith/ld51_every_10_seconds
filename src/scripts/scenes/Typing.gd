@@ -5,5 +5,5 @@ func enable():
 	$LineEdit.clear()
 
 func init(selected: ImagePrompt):
-	$Image.texture = load(selected.path)
+	$Image/Display.texture = load(selected.path)
 	$LineEdit.grab_focus()

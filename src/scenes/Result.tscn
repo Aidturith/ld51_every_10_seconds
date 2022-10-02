@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/scenes/Result.gd" type="Script" id=1]
-[ext_resource path="res://assets/white_placeholder.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Photo.tscn" type="PackedScene" id=2]
 
 [node name="Result" type="Node2D"]
 script = ExtResource( 1 )
@@ -12,26 +12,25 @@ margin_bottom = 768.0
 color = Color( 0.462745, 0.458824, 0.458824, 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 243.0
-margin_top = 543.0
-margin_right = 643.0
-margin_bottom = 640.0
+margin_left = 237.0
+margin_top = 576.0
+margin_right = 637.0
+margin_bottom = 673.0
 bbcode_enabled = true
+text = "score placeholder"
 
-[node name="Image" type="TextureRect" parent="."]
-margin_left = 233.0
-margin_top = 109.0
-margin_right = 745.0
-margin_bottom = 621.0
-rect_scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 2 )
-stretch_mode = 1
-
-[node name="Button" type="Button" parent="."]
+[node name="ButtonNext" type="Button" parent="."]
 margin_left = 376.0
 margin_top = 675.0
 margin_right = 456.0
 margin_bottom = 695.0
 text = "Next stage"
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[node name="Image" parent="." instance=ExtResource( 2 )]
+margin_left = 235.0
+margin_top = 110.0
+margin_right = 235.0
+margin_bottom = 110.0
+display = 1
+
+[connection signal="pressed" from="ButtonNext" to="." method="_on_Button_pressed"]

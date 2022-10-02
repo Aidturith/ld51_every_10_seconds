@@ -6,7 +6,7 @@ func _on_Button_pressed():
 	emit_signal("next_stage")
 
 func init(selected: ImagePrompt):
-	$Image.texture = load(selected.path)
+	$Image/Display.texture = load(selected.path)
 	
 func enable():
 	.enable()

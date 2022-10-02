@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/scenes/Typing.gd" type="Script" id=1]
-[ext_resource path="res://assets/white_placeholder.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Photo.tscn" type="PackedScene" id=3]
 
 [node name="Typing" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,14 +26,12 @@ margin_top = 18.0
 margin_right = 1024.0
 margin_bottom = 18.0
 
-[node name="Image" type="TextureRect" parent="."]
-margin_left = 233.0
-margin_top = 109.0
-margin_right = 745.0
-margin_bottom = 621.0
-rect_scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 2 )
-stretch_mode = 1
+[node name="Image" parent="." instance=ExtResource( 3 )]
+margin_left = 249.0
+margin_top = 107.0
+margin_right = 249.0
+margin_bottom = 107.0
+display = 1
 
 [node name="LineEdit" type="LineEdit" parent="."]
 margin_left = 243.0
