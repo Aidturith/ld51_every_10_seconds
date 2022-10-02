@@ -48,6 +48,15 @@ func _on_ChooseImage_image_selected(index):
 
 func _on_TickingClock_clock_stop():
 	$TitleImage/LineEdit.editable = false
+	$TitleImage.hide()
+	$TitleImage.pause_mode = Node.PAUSE_MODE_STOP
+	var scores = get_scores()
+	$Result.init(selected)
+	$Result.update_score(scores)
+	$Result.show()
+	$Result.pause_mode = Node.PAUSE_MODE_INHERIT
+
+func get_scores():
 	var title_tokens = $TitleImage/LineEdit.text.split(" ", false)
 	var scores = []
 	for a in title_tokens:
@@ -55,10 +64,6 @@ func _on_TickingClock_clock_stop():
 		for b in selected.tokens:
 			var similarity = a.to_lower().similarity(b)
 			score_max = max(score_max, similarity)
-			#if similarity >= 0.75:
-			#	print(a, " - ", b, ": ", similarity)
-		var dict = {"word": a, "score": score_max} 
+		var dict = { "word": a, "score": score_max } 
 		scores.append(dict)
-	print(scores)
-	$Result.update_score(scores)
-	$TitleImage/LineEdit.hide()
+	return scores

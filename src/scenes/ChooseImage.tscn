@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/ChooseImage.gd" type="Script" id=1]
+[ext_resource path="res://assets/white_placeholder.png" type="Texture" id=2]
 
 [node name="ChooseImage" type="Node2D"]
 script = ExtResource( 1 )
@@ -31,6 +32,8 @@ margin_top = 98.0
 margin_right = 608.0
 margin_bottom = 610.0
 rect_scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 2 )
+stretch_mode = 1
 
 [node name="ColorRectA" type="ColorRect" parent="ImageA"]
 anchor_right = 1.0
@@ -44,6 +47,8 @@ margin_top = 181.0
 margin_right = 1054.0
 margin_bottom = 693.0
 rect_scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 2 )
+stretch_mode = 1
 
 [node name="ColorRectB" type="ColorRect" parent="ImageB"]
 anchor_right = 1.0
