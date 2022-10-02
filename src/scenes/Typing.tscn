@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/scenes/Typing.gd" type="Script" id=1]
 [ext_resource path="res://ressources/title_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/Photo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ressources/ui_font.tres" type="DynamicFont" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -16,27 +17,22 @@ margin_right = 1024.0
 margin_bottom = 768.0
 color = Color( 0.462745, 0.458824, 0.458824, 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 1024.0
-margin_bottom = 768.0
-
-[node name="Title" type="Label" parent="VBoxContainer"]
-margin_right = 1024.0
-margin_bottom = 14.0
-text = "Choose an image"
-align = 1
-
-[node name="ImageContainter" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 18.0
-margin_right = 1024.0
-margin_bottom = 18.0
-
 [node name="Image" parent="." instance=ExtResource( 3 )]
 margin_left = 235.0
 margin_top = 110.0
 margin_right = 235.0
 margin_bottom = 110.0
 display = 1
+
+[node name="HintText" type="Label" parent="."]
+margin_left = 365.0
+margin_top = 32.0
+margin_right = 641.0
+margin_bottom = 69.0
+custom_fonts/font = ExtResource( 4 )
+text = "Type an exciting title !"
+align = 1
+valign = 1
 
 [node name="LineEdit" type="LineEdit" parent="."]
 margin_left = 235.0
