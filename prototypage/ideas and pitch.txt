@@ -44,3 +44,6 @@ Simultaneous play
 Share and rate titles (Censoring ? No f-words, no names, only ascii)
 
 * Pouvoir proposer des prompts ?
+
+* Générer des prompts à partir d'images puis regenerer les images
+Voir https://replicate.com/methexis-inc/img2prompt

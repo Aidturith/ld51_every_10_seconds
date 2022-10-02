@@ -9,7 +9,7 @@ func _ready():
 	randomize()
 	center_window()
 	self.images = load_images("res://assets/sd")
-	start_choose_scene()
+	start_choosing_scene()
 
 func _on_Choosing_image_selected(index):
 	self.selected = picks[index]
@@ -19,15 +19,16 @@ func _on_Choosing_image_selected(index):
 
 func _on_TickingClock_clock_stop():
 	$Scenes/Typing.disable()
-	var scores = get_scores()
+	var player_input = $Scenes/Typing/LineEdit.text
+	var scores = selected.get_scores(player_input)
 	$Scenes/Result.enable()
 	$Scenes/Result.init(selected)
 	$Scenes/Result.update_score(scores)
 
 func _on_Result_next_stage():
-	start_choose_scene()
+	start_choosing_scene()
 	
-func start_choose_scene():
+func start_choosing_scene():
 	$Scenes/Result.disable()
 	var image_a = pick_image()
 	var image_b = pick_image()
@@ -35,13 +36,14 @@ func start_choose_scene():
 	$Scenes/Choosing.enable()
 	$Scenes/Choosing.init(picks)
 	$UI/TickingClock.start_clock()
-	
+
 func center_window():
 	var screen_size = OS.get_screen_size()
 	var window_size = OS.get_window_size()
 	OS.set_window_position(screen_size*0.5 - window_size*0.5)
 
 func load_images(path: String):
+	var synonyms = load_synonyms("res://assets/data/synonyms_en.json")
 	var scene = load("res://scenes/ImagePrompt.tscn")
 	var images = []
 	var dir = Directory.new()
@@ -51,26 +53,21 @@ func load_images(path: String):
 		while file_name:
 			if file_name.ends_with(".png"):
 				var image = scene.instance()
-				image.load(path, file_name)
+				image.load(path, file_name, synonyms)
 				images.append(image)
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the path.")
 	return images
+	
+func load_synonyms(path):
+	var file = File.new()
+	file.open(path, File.READ)
+	var text = file.get_as_text()
+	var json = parse_json(text)
+	return json
 
 func pick_image():
 	if self.images:
 		var pick = randi() % self.images.size()
 		return self.images.pop_at(pick)
-
-func get_scores():
-	var title_tokens = $Scenes/Typing/LineEdit.text.split(" ", false)
-	var scores = []
-	for a in title_tokens:
-		var score_max = 0.0
-		for b in selected.tokens:
-			var similarity = a.to_lower().similarity(b)
-			score_max = max(score_max, similarity)
-		var dict = { "word": a, "score": score_max } 
-		scores.append(dict)
-	return scores
