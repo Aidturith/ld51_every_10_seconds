@@ -17,11 +17,11 @@ func update_score(scores_data):
 		var score = data["score"]
 		var word = data["word"]
 		push_color(score)
-		if score == 1.0:
-			push_wave()
+		# if score == 1.0:
+		#	push_wave()
 		add_word(word)
-		if score == 1.0:
-			pop()
+		# if score == 1.0:
+		#	pop()
 		pop()
 
 func add_word(word):
@@ -38,4 +38,4 @@ func push_color(score: float):
 	$RichTextLabel.push_color(color)
 
 func black_red_gradient(weight: float):
-	return Color(weight, 0, 0)
+	return Color(0.1, weight, 0.1)

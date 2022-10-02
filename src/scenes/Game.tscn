@@ -19,11 +19,16 @@ script = ExtResource( 1 )
 
 [node name="UI" type="Node" parent="."]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="UI"]
+visible = false
+color = Color( 0.27451, 0.27451, 0.27451, 1 )
+
 [node name="TickingClock" parent="UI" instance=ExtResource( 4 )]
-margin_left = 22.0
-margin_top = 703.0
-margin_right = 22.0
-margin_bottom = 703.0
+margin_left = 239.0
+margin_top = 794.0
+margin_right = 239.0
+margin_bottom = 794.0
+rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( -679, -703 )
 
 [connection signal="next_stage" from="Scenes/Result" to="." method="_on_Result_next_stage"]

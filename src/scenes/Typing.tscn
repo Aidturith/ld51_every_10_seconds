@@ -35,10 +35,10 @@ align = 1
 valign = 1
 
 [node name="LineEdit" type="LineEdit" parent="."]
-margin_left = 235.0
-margin_top = 515.0
-margin_right = 782.0
-margin_bottom = 568.0
+margin_left = 238.0
+margin_top = 516.0
+margin_right = 785.0
+margin_bottom = 569.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 custom_styles/focus = SubResource( 1 )

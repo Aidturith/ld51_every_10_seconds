@@ -9,12 +9,7 @@ func _ready():
 	randomize()
 	center_window()
 	self.images = load_images("res://assets/sd")
-	var image_a = pick_image()
-	var image_b = pick_image()
-	self.picks = [image_a, image_b]
-	$Scenes/Choosing.init(picks)
-	$Scenes/Choosing.enable()
-	$UI/TickingClock/Timer.start()
+	start_choose_scene()
 
 func _on_Choosing_image_selected(index):
 	self.selected = picks[index]
@@ -30,14 +25,17 @@ func _on_TickingClock_clock_stop():
 	$Scenes/Result.update_score(scores)
 
 func _on_Result_next_stage():
+	start_choose_scene()
+	
+func start_choose_scene():
 	$Scenes/Result.disable()
 	var image_a = pick_image()
 	var image_b = pick_image()
 	self.picks = [image_a, image_b]
 	$Scenes/Choosing.enable()
 	$Scenes/Choosing.init(picks)
-	$UI/TickingClock/Timer.start()
-
+	$UI/TickingClock.start_clock()
+	
 func center_window():
 	var screen_size = OS.get_screen_size()
 	var window_size = OS.get_window_size()
