@@ -12,6 +12,29 @@ func _ready():
 	var image_b = pick_image()
 	self.picks = [image_a, image_b]
 	$Scenes/Choosing.init(picks)
+	$Scenes/Choosing.enable()
+
+func _on_Choosing_image_selected(index):
+	self.selected = picks[index]
+	$Scenes/Choosing.disable()
+	$Scenes/Typing.enable()
+	$Scenes/Typing.init(selected)
+
+func _on_TickingClock_clock_stop():
+	$Scenes/Typing.disable()
+	var scores = get_scores()
+	$Scenes/Result.enable()
+	$Scenes/Result.init(selected)
+	$Scenes/Result.update_score(scores)
+
+func _on_Result_next_stage():
+	$Scenes/Result.disable()
+	var image_a = pick_image()
+	var image_b = pick_image()
+	self.picks = [image_a, image_b]
+	$Scenes/Choosing.enable()
+	$Scenes/Choosing.init(picks)
+	$UI/TickingClock/Timer.start()
 
 func load_images(path: String):
 	var scene = load("res://scenes/ImagePrompt.tscn")
@@ -34,22 +57,6 @@ func pick_image():
 	if self.images:
 		var pick = randi() % self.images.size()
 		return self.images.pop_at(pick)
-
-func _on_Choosing_image_selected(index):
-	self.selected = picks[index]
-	$Scenes/Choosing.hide()
-	$Scenes/Choosing.pause_mode = Node.PAUSE_MODE_STOP
-	$Scenes/Typing.init(selected)
-
-func _on_TickingClock_clock_stop():
-	$Scenes/Typing/LineEdit.editable = false
-	$Scenes/Typing.hide()
-	$Scenes/Typing.pause_mode = Node.PAUSE_MODE_STOP
-	var scores = get_scores()
-	$Scenes/Result.init(selected)
-	$Scenes/Result.update_score(scores)
-	$Scenes/Result.show()
-	$Scenes/Result.pause_mode = Node.PAUSE_MODE_INHERIT
 
 func get_scores():
 	var title_tokens = $Scenes/Typing/LineEdit.text.split(" ", false)

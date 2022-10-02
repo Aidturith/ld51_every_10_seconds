@@ -25,5 +25,6 @@ margin_top = 703.0
 margin_right = 22.0
 margin_bottom = 703.0
 
+[connection signal="next_stage" from="Scenes/Result" to="." method="_on_Result_next_stage"]
 [connection signal="image_selected" from="Scenes/Choosing" to="." method="_on_Choosing_image_selected"]
 [connection signal="clock_stop" from="UI/TickingClock" to="." method="_on_TickingClock_clock_stop"]

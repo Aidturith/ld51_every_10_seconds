@@ -1,7 +1,16 @@
-extends Node2D
+extends "res://scripts/scenes/GameScene.gd"
+
+signal next_stage
+
+func _on_Button_pressed():
+	emit_signal("next_stage")
 
 func init(selected: ImagePrompt):
 	$Image.texture = load(selected.path)
+	
+func enable():
+	.enable()
+	$RichTextLabel.clear()
 
 func update_score(scores_data):
 	for data in scores_data:

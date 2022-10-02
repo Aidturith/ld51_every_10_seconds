@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://scripts/scenes/GameScene.gd"
 
 signal image_selected
 
