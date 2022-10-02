@@ -1,0 +1,46 @@
+Hello notepad
+
+Theme :
+Every 10 seconds, periodic, publication.
+Combined with Stable diffusion to make fake articles.
+
+Pitch :
+You work at a news agency, publishing a new article daily (10 seconds).
+You have to pick a picture and write a catchy title about it.
+
+Gameplay :
+Within 10 seconds you are displayed a few pictures (3 ?). 
+Pick which ever inspire you.
+Quickly write down the title with whichever time left you have.
+Result is displayed with points.
+The more you match the prompt, the more points you get.
+The more catchy and hooking a title, the more you rise within the company!
+
+Graphics :
+
+Poor; Keep the 2D prototype
+Rich; Have a 3D newpaper displayed on screen, with the city as a backdrop, desk and allb
+
+Ideas :
+
+* Use levenstein
+Exact match, full points
+75% match, a bit less points
+
+* Accept synonyms
+They would land a bit less points
+Nice thesaurus here https://raw.githubusercontent.com/zaibacu/thesaurus/master/en_thesaurus.jsonl
+
+* Have chronologically related stories, think about the Nintendo moto Intro, Dev, Twist and Conclusion
+Hello Kitty land on Mars, Hello Kitty discover life on mars, Hello Kitty in deep troubles, Hello Kitty victorious on mars
+
+* Bonus points for sensational keywords
+No duplicates, degressif ?
+
+* Have a leaderboards
+
+* Add multiplayer
+Simultaneous play
+Share and rate titles (Censoring ? No f-words, no names, only ascii)
+
+* Pouvoir proposer des prompts ?
