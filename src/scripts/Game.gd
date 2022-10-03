@@ -57,6 +57,7 @@ func update_score_labels(scores):
 		$UI/ScoreTally/AnimationPlayer.play("Update Score")
 
 func start_choosing_scene():
+	$Node/TurnPage.play()
 	$Scenes/Result.disable()
 	var image_a = pick_image()
 	var image_b = pick_image()
