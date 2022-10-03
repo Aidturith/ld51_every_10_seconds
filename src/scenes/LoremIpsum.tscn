@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/components/LoremIpsum.gd" type="Script" id=1]
+[ext_resource path="res://ressources/small_text_font.tres" type="DynamicFont" id=2]
+
+[node name="LoremIpsum" type="RichTextLabel"]
+margin_right = 200.0
+margin_bottom = 580.0
+custom_colors/default_color = Color( 0.231373, 0.231373, 0.231373, 1 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[fill]Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna quam, efficitur eu posuere quis, lobortis at nulla. Aenean tempus leo eget nulla scelerisque vestibulum. Phasellus a leo vel ante tristique vehicula at et purus. Phasellus quis arcu vulputate, iaculis quam in, ultricies leo. Nam faucibus euismod ipsum volutpat euismod. Praesent cursus, nulla non tristique mattis, arcu dui malesuada neque, a lacinia mauris purus vitae nisl. Morbi massa erat, facilisis et rutrum nec, tristique id dolor. Sed semper purus ac lectus consectetur dignissim. Sed nulla diam, lacinia ac ante in, elementum varius risus. Cras id lorem ac dolor dignissim finibus ac vitae nisi. Donec ut dolor mi. Praesent imperdiet enim vel sodales pharetra. Cras sit amet interdum turpis, at finibus felis.[/fill]"
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna quam, efficitur eu posuere quis, lobortis at nulla. Aenean tempus leo eget nulla scelerisque vestibulum. Phasellus a leo vel ante tristique vehicula at et purus. Phasellus quis arcu vulputate, iaculis quam in, ultricies leo. Nam faucibus euismod ipsum volutpat euismod. Praesent cursus, nulla non tristique mattis, arcu dui malesuada neque, a lacinia mauris purus vitae nisl. Morbi massa erat, facilisis et rutrum nec, tristique id dolor. Sed semper purus ac lectus consectetur dignissim. Sed nulla diam, lacinia ac ante in, elementum varius risus. Cras id lorem ac dolor dignissim finibus ac vitae nisi. Donec ut dolor mi. Praesent imperdiet enim vel sodales pharetra. Cras sit amet interdum turpis, at finibus felis."
+fit_content_height = true
+scroll_active = false
+script = ExtResource( 1 )

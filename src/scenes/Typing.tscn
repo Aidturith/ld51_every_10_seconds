@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/scenes/Typing.gd" type="Script" id=1]
 [ext_resource path="res://ressources/title_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/Photo.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ressources/ui_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://scenes/LoremIpsum.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -36,8 +37,8 @@ valign = 1
 
 [node name="LineEdit" type="LineEdit" parent="."]
 margin_left = 238.0
-margin_top = 516.0
-margin_right = 785.0
+margin_top = 515.0
+margin_right = 617.0
 margin_bottom = 569.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
@@ -46,3 +47,15 @@ custom_styles/normal = SubResource( 2 )
 text = "Player input here"
 caret_blink = true
 caret_blink_speed = 0.3
+
+[node name="LoremIpsum" parent="." instance=ExtResource( 5 )]
+margin_left = 641.0
+margin_top = 109.0
+margin_right = 841.0
+margin_bottom = 689.0
+
+[node name="LoremIpsum2" parent="." instance=ExtResource( 5 )]
+margin_left = 859.0
+margin_top = 113.0
+margin_right = 1059.0
+margin_bottom = 693.0

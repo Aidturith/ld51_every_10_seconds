@@ -29,6 +29,8 @@ func _on_TickingClock_clock_stop():
 	$Scenes/Result.enable()
 	$Scenes/Result.init(selected)
 	$Scenes/Result.update_score(scores)
+	$Scenes/Result/LoremIpsum.insert_words(selected.tokens)
+	$Scenes/Result/LoremIpsum2.insert_words(selected.synonyms)
 	update_score_labels(scores)
 
 func _on_Result_next_stage():

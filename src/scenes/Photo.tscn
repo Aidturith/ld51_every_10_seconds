@@ -13,13 +13,11 @@ script = ExtResource( 2 )
 [node name="Sprites" type="Node2D" parent="."]
 
 [node name="Polaroid" type="Sprite" parent="Sprites"]
-visible = false
 position = Vector2( 200, 198 )
 scale = Vector2( 1.05, 1.1 )
 texture = ExtResource( 3 )
 
 [node name="Newspaper" type="Sprite" parent="Sprites"]
-visible = false
 position = Vector2( 387, 352 )
 texture = ExtResource( 4 )
 

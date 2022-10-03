@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/scenes/Result.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Photo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ressources/title_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://ressources/ui_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://scenes/LoremIpsum.tscn" type="PackedScene" id=5]
 
 [node name="Result" type="Node2D"]
 script = ExtResource( 1 )
@@ -23,8 +24,8 @@ display = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 235.0
 margin_top = 515.0
-margin_right = 635.0
-margin_bottom = 612.0
+margin_right = 619.0
+margin_bottom = 655.0
 custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[color=black]Title scored here[/color]"
@@ -33,9 +34,22 @@ text = "Title scored here"
 [node name="ButtonNext" type="Button" parent="."]
 margin_left = 376.0
 margin_top = 675.0
-margin_right = 456.0
-margin_bottom = 695.0
+margin_right = 502.0
+margin_bottom = 718.0
+rect_pivot_offset = Vector2( -997, -489 )
 custom_fonts/font = ExtResource( 4 )
 text = "Next day"
+
+[node name="LoremIpsum" parent="." instance=ExtResource( 5 )]
+margin_left = 641.0
+margin_top = 109.0
+margin_right = 841.0
+margin_bottom = 689.0
+
+[node name="LoremIpsum2" parent="." instance=ExtResource( 5 )]
+margin_left = 859.0
+margin_top = 113.0
+margin_right = 1059.0
+margin_bottom = 693.0
 
 [connection signal="pressed" from="ButtonNext" to="." method="_on_Button_pressed"]
