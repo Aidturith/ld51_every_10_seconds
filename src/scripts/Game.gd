@@ -4,12 +4,17 @@ var images = []
 var picks = []
 var selected: ImagePrompt = null
 
+var score_tally: int = 0
+
 func _ready():
 	print("load game")
 	randomize()
 	center_window()
 	self.images = load_images("res://assets/sd")
-	start_choosing_scene()
+	$UI/TickingClock.hide()
+	$UI/ScoreTally.hide()
+	$UI/ScoreAdded.hide()
+	$Scenes/Title.show()
 
 func _on_Choosing_image_selected(index):
 	self.selected = picks[index]
@@ -24,10 +29,31 @@ func _on_TickingClock_clock_stop():
 	$Scenes/Result.enable()
 	$Scenes/Result.init(selected)
 	$Scenes/Result.update_score(scores)
+	update_score_labels(scores)
 
 func _on_Result_next_stage():
 	start_choosing_scene()
 	
+func _on_Title_game_start():
+	$Scenes/Title.disable()
+	$UI/TickingClock.show()
+	$UI/ScoreTally.show()
+	start_choosing_scene()
+
+func update_score_labels(scores):
+	var prev_tally = self.score_tally
+	for score_data in scores:
+		var score = score_data["score"] * 100
+		if score == 100:
+			score *= 2
+		self.score_tally += score
+		$UI/ScoreTally.text = String(self.score_tally)
+	var score_added = self.score_tally - prev_tally
+	if score_added > 0:
+		$UI/ScoreAdded.text = "+" + String(score_added)
+		$UI/ScoreAdded/AnimationPlayer.play("Score Added")
+		$UI/ScoreTally/AnimationPlayer.play("Update Score")
+
 func start_choosing_scene():
 	$Scenes/Result.disable()
 	var image_a = pick_image()
