@@ -80,9 +80,10 @@ func load_images(path: String):
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name:
-			if file_name.ends_with(".png"):
+			if file_name.ends_with(".png.import"):
 				var image = scene.instance()
-				image.load(path, file_name, synonyms)
+				var file_name2 = file_name.trim_suffix(".import")
+				image.load(path, file_name2, synonyms)
 				images.append(image)
 			file_name = dir.get_next()
 	else:
